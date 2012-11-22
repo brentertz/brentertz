@@ -2,3 +2,6 @@
 .bundle
 vendor
 temp
+dist/jpgtmp.jpg
+dist/manifest.appcache
+dist/dist
