@@ -1,6 +1,6 @@
 .DS_Store
 .bundle
-vendor
+/vendor
 temp
 dist/jpgtmp.jpg
 dist/manifest.appcache
