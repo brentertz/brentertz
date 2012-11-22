@@ -15,8 +15,8 @@ define([
   };
 
   App.prototype.events = function(){
-    this.handleResize();
     this.loadBackground();
+    this.handleResize();
 
     if(Modernizr.canvas && this.canvas){
       this.pixelate();
@@ -44,8 +44,8 @@ define([
   App.prototype.pixelate = function(){
     var h = 60,
         w = h,
-        x_pos = this.canvas.settings.width / h,
-        y_pos = this.canvas.settings.height / w;
+        x_pos = this.canvas.settings.width / w,
+        y_pos = this.canvas.settings.height / h;
 
     for(var x = 0; x < x_pos; x++){
       for(var y = 0; y < y_pos; y++){
@@ -55,7 +55,7 @@ define([
         this.canvas.context.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',' + alpha + ')';
         this.canvas.context.shadowColor = '#fff';
         this.canvas.context.shadowBlur = 5;
-        this.canvas.context.fillRect(x * h, y * w, h, w);
+        this.canvas.context.fillRect(x * w, y * h, w, h);
       }
     }
   };
