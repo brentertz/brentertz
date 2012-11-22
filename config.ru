@@ -1,6 +1,8 @@
+root = ENV['RACK_ENV'] == 'production' ? 'dist' : 'app'
+
 use Rack::Static,
   :urls => ['/styles', '/fonts', '/images', '/scripts'],
-  :root => 'dist'
+  :root => root
 
 run lambda { |env|
   [
@@ -9,6 +11,6 @@ run lambda { |env|
       'Content-Type'  => 'text/html',
       'Cache-Control' => 'public, max-age=86400'
     },
-    File.open('dist/index.html', File::RDONLY)
+    File.open("#{root}/index.html", File::RDONLY)
   ]
 }
